@@ -1,11 +1,11 @@
-#
-#
-
+# Shiny app allowing: plot and parameters for microbial growth dataset
+# Marc Garel, Severine Martini,  Christian Tamburini
+### October 2017
 library(shiny)
 
 
 shinyUI(fluidPage(
-  headerPanel("Welcome on a growth curve app"),
+  headerPanel("Application of a logistic model on microbial datasets"),
 # load dataset
 titlePanel("Upload file"),
   sidebarLayout(
