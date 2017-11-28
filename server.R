@@ -16,6 +16,18 @@ shinyServer(function(input, output) {
     dd<-read.csv(inFile$datapath, header=input$header, sep=input$sep, 
              quote=input$quote)
     do<-reactiveValues(data=dd)
+
+        #calcul coef pour affichage dans en dessous du graph
+    x=rep(dd[,1],ncol(dd)-1)
+    y=unlist(dd[,2:ncol(dd)])
+    crssce=data.frame(y,x)
+    fit=nls(y~SSlogis(x,Asym,xmid,scal),crssce)
+    param=summary(fit)$parameters
+    mu=round(1/param[3,1],digits=3)
+    sdmu=round((1/summary(fit)$parameters[3,1])-(1/(summary(fit)$parameters[3,1]+summary(fit)$parameters[3,2])), digits=3)
+    asym=round(param[1,1],digits=3)
+    sdasym=round(summary(fit)$parameters[1,2], digits=3)
+    #####Le graph
     
     output$plot <- renderPlot({
       
@@ -49,7 +61,11 @@ shinyServer(function(input, output) {
       observeEvent(input$clicks, {print(as.numeric(do$data))})
      
     })
-    # 
+     output$ex_out <- renderPrint({return(c(mu,sdmu,asym,sdasym))})
+
+     })
+      output$txtout <- renderText({
+    paste("This is to perform logistic regression to estimate growth rate and maxium cells density. You have to format data with tab separartor and dot for decimal")
   })
 
 })
