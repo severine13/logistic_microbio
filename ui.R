@@ -28,9 +28,13 @@ titlePanel("Upload file"),
                    '"')
     ),
     
-    mainPanel(tableOutput('contents'),
-         
-      plotOutput('plot')
+    mainPanel(
+      h4("Some details"),
+      verbatimTextOutput("txtout"),
+      tabsetPanel(
+      tabPanel("Data",tableOutput('contents')),
+      tabPanel("Plot",plotOutput('plot'), verbatimTextOutput('ex_out'))
+      )
     )
   )
   
