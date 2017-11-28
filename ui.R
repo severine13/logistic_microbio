@@ -9,7 +9,7 @@ shinyUI(fluidPage(
 # load dataset
 titlePanel("Upload file"),
   sidebarLayout(
-    sidebarPanel(
+    sidebarPanel(("This is to perform logistic regression to estimate growth rate and maxium cells density. You have to format data with tab separartor and dot for decimal"
       fileInput('file1', 'Choose CSV File',
                 accept=c('text/csv', 
                          'text/comma-separated-values,text/plain', 
@@ -31,6 +31,8 @@ titlePanel("Upload file"),
     mainPanel(
       h4("Some details"),
       verbatimTextOutput("txtout"),
+      withMathJax(),
+      helpText('Logistic equation $$x(t) =r.x_0.(1-\\frac{x_0}K)$$'),
       tabsetPanel(
       tabPanel("Data",tableOutput('contents')),
       tabPanel("Plot",plotOutput('plot'), verbatimTextOutput('ex_out'))
