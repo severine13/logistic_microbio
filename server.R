@@ -65,7 +65,8 @@ shinyServer(function(input, output) {
 
      })
       output$txtout <- renderText({
-    paste("This is to perform logistic regression to estimate growth rate and maxium cells density. You have to format data with tab separartor and dot for decimal")
+    
+    paste("Martini, S., B. Al Ali, M. Garel, and others. 2013. Effects of Hydrostatic Pressure on Growth and Luminescence of a Moderately-Piezophilic Luminous Bacteria Photobacterium phosphoreum ANT-2200 A. Driks [ed.]. PLoS One 8: e66580. doi:10.1371/journal.pone.0066580")
   })
 
 })
