@@ -1,3 +1,4 @@
+
 # Shiny app allowing: plot and parameters for microbial growth dataset
 # Marc Garel, Severine Martini,  Christian Tamburini
 ### October 2017
@@ -29,7 +30,7 @@ titlePanel("Upload file"),
     ),
     
     mainPanel(
-      h4("Some details"),
+      h4("References"),
       verbatimTextOutput("txtout"),
       withMathJax(),
       helpText('Logistic equation $$x(t) =r.x_0.(1-\\frac{x_0}K)$$'),
