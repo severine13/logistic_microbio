@@ -17,7 +17,7 @@ shinyServer(function(input, output) {
              quote=input$quote)
     do<-reactiveValues(data=dd)
 
-        #calcul coef pour affichage dans en dessous du graph
+   #calcul coef pour affichage dans en dessous du graph
     x=rep(dd[,1],ncol(dd)-1)
     y=unlist(dd[,2:ncol(dd)])
     crssce=data.frame(y,x)
@@ -28,6 +28,8 @@ shinyServer(function(input, output) {
     asym=round(param[1,1],digits=3)
     sdasym=round(summary(fit)$parameters[1,2], digits=3)
     #####Le graph
+    
+    
     
     output$plot <- renderPlot({
       
@@ -61,7 +63,8 @@ shinyServer(function(input, output) {
       observeEvent(input$clicks, {print(as.numeric(do$data))})
      
     })
-     output$ex_out <- renderPrint({return(c(mu,sdmu,asym,sdasym))})
+    output$ex_out <- renderPrint({return(c(mu,sdmu,asym,sdasym))})
+    output$ex_out2 <- renderPrint({return(dd)})
 
      })
       output$txtout <- renderText({
