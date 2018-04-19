@@ -1,0 +1,12 @@
+name: logistic_microbio
+title: logistic_microbio
+username:
+account: hpteam
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 325933
+bundleId: 1327097
+url: https://hpteam.shinyapps.io/logistic_microbio/
+when: 1524126472.021
+asMultiple: FALSE
+asStatic: FALSE
